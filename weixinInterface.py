@@ -4,6 +4,7 @@ import web
 import lxml
 import time
 import os
+import md5
 import urllib2,json
 from lxml import etree
 
@@ -45,11 +46,24 @@ class WeixinInterface:
         return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
     
     def youdao(word):
-        qword = urllib2.quote(word)
-        baseurl = r'http://fanyi.youdao.com/openapi.do?keyfrom=yourAppName&key=yourAppKey&type=data&doctype=json&version=1.1&q='
-        baseurl = r'http://openapi.youdao.com/api?from=EN&to=zh_CHS&appKey=68288d01f74b3f01&salt=2&sign=1995882C5064805BC30A39829B779D7B&q='
-        url = baseurl+qword
-        resp = urllib2.urlopen(url)
+        appKey = '68288d01f74b3f01'
+        secretKey = 'zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'
+
+
+        
+        myurl = 'http://openapi.youdao.com/api'
+        
+        fromLang = 'EN'
+        toLang = 'zh-CHS'
+        salt = random.randint(1, 65536)
+
+        sign = appKey+q+str(salt)+secretKey
+        m1 = md5.new()
+        m1.update(sign)
+        sign = m1.hexdigest()
+        myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(word)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
+        
+        resp = urllib2.urlopen(myurl)
         fanyi = json.loads(resp.read())
         ##根据json是否返回一个叫“basic”的key来判断是否翻译成功
         if 'basic' in fanyi.keys():
