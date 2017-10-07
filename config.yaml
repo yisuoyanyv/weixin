@@ -7,5 +7,5 @@ libraries:
 
 - name: lxml
   version: "2.3.4"
-- name:md5
+- name: md5
   version:"1.0"
