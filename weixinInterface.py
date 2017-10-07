@@ -53,7 +53,7 @@ class WeixinInterface:
 
 
         
-        myurl = 'http://openapi.youdao.com/api'
+        myurl =u'http://openapi.youdao.com/api'
         
         fromLang = 'EN'
         toLang = 'zh-CHS'
