@@ -43,17 +43,18 @@ class WeixinInterface:
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
-        #Nword=youdao(content)
-        return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
-    	#return self.render.reply_text(fromUser,toUser,int(time.time()),Nword)
+        
+        #return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
+        Nword=youdao(content)
+    	return self.render.reply_text(fromUser,toUser,int(time.time()),Nword)
     
     def youdao(q):
-        appKey = u'68288d01f74b3f01'
-        secretKey =u'zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'
+        appKey = '68288d01f74b3f01'
+        secretKey ='zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'
 
 
         
-        myurl =u'http://openapi.youdao.com/api'
+        myurl ='http://openapi.youdao.com/api'
         
         fromLang = 'EN'
         toLang = 'zh-CHS'
