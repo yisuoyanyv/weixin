@@ -73,7 +73,7 @@ class WeixinInterface:
             trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],''.join(fanyi['translation']),''.join(fanyi['basic']['explains']),''.join(fanyi['web'][0]['value']))
             return trans
         else:
-            return u'对不起，您输入的单词%s无法翻译，请检查拼写'% word
+            return u'对不起，您输入的单词%s无法翻译，请检查拼写'% q
     
     
     
