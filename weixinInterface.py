@@ -47,7 +47,7 @@ class WeixinInterface:
         #return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
     	return self.render.reply_text(fromUser,toUser,int(time.time()),Nword)
     
-    def youdao(word):
+    def youdao(q):
         appKey = '68288d01f74b3f01'
         secretKey = 'zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'
 
@@ -63,7 +63,7 @@ class WeixinInterface:
         m1 = md5.new()
         m1.update(sign)
         sign = m1.hexdigest()
-        myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(word)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
+        myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
         
         resp = urllib2.urlopen(myurl)
         fanyi = json.loads(resp.read())
