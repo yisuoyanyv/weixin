@@ -53,7 +53,7 @@ class WeixinInterface:
                 if type(content).__name__ == "unicode":
                     content = content.encode('UTF-8')
                 #return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+youdao(content))
+                    return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+self.youdao(content))
         #关注后的欢迎语 TODO
         if msgType == 'event':
             if xml.find("Event").text == 'subscribe':#关注的时候的欢迎语
