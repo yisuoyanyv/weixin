@@ -73,11 +73,12 @@ class WeixinInterface:
         salt = random.randint(1, 65536)
 
         sign = appKey+q+str(salt)+secretKey
-        m1 = md5.new()
-        m1.update(sign)
-        sign = m1.hexdigest()
-        myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
-        return myurl
+        return sign
+        #m1 = md5.new()
+        #m1.update(sign)
+        #sign = m1.hexdigest()
+        #myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
+        
         
         #resp = urllib2.urlopen(myurl)
         #fanyi = json.loads(resp.read())
