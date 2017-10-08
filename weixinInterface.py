@@ -7,6 +7,7 @@ import os
 import md5
 import urllib2,json
 from lxml import etree
+import random
 
 class WeixinInterface:
 
