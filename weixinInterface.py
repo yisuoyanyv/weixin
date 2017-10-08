@@ -70,10 +70,11 @@ class WeixinInterface:
         
         fromLang = 'EN'
         toLang = 'zh-CHS'
-        salt = random.randint(1, 65536)
+        return myurl
+        #salt = random.randint(1, 65536)
 
-        sign = appKey+q+str(salt)+secretKey
-        return sign
+        #sign = appKey+q+str(salt)+secretKey
+        
         #m1 = md5.new()
         #m1.update(sign)
         #sign = m1.hexdigest()
