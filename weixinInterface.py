@@ -62,8 +62,7 @@ class WeixinInterface:
         #Nword=youdao(content)
     	#return self.render.reply_text(fromUser,toUser,int(time.time()),Nword)
     
-    def youdao(q):
-        
+    def youdao(q):        
         appKey = '68288d01f74b3f01'
         secretKey ='zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'        
         myurl ='http://openapi.youdao.com/api'
