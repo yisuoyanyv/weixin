@@ -63,6 +63,7 @@ class WeixinInterface:
     	#return self.render.reply_text(fromUser,toUser,int(time.time()),Nword)
     
     def youdao(q):
+        return '888'
         appKey = '68288d01f74b3f01'
         secretKey ='zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'        
         myurl ='http://openapi.youdao.com/api'
@@ -77,7 +78,7 @@ class WeixinInterface:
         sign = m1.hexdigest()
         myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
         
-        return myurl
+        
         resp = urllib2.urlopen(myurl)
         fanyi = json.loads(resp.read())
         ##根据json是否返回一个叫“basic”的key来判断是否翻译成功
