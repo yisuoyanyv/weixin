@@ -69,7 +69,7 @@ class WeixinInterface:
         
         fromLang = 'EN'
         toLang = 'zh-CHS'
-        return myurl
+        return 'kkk'
         #salt = random.randint(1, 65536)
 
         #sign = appKey+q+str(salt)+secretKey
