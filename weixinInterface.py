@@ -51,7 +51,7 @@ class WeixinInterface:
                 return self.render.reply_text(fromUser, toUser, int(time.time()), "随便看看？（对不起我功能有限QAQ）")
             else:
                 return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
-
+        #关注后的欢迎语 TODO
         if msgType == 'event':
             if xml.find("Event").text == 'subscribe':#关注的时候的欢迎语
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u"谢谢你的关注，输入help看看如何正确的调戏我")
