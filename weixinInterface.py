@@ -70,7 +70,7 @@ def youdao(q):
     secretKey ='zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'        
     myurl ='http://openapi.youdao.com/api'
 
-    fromLang = 'autos'#auto  EN
+    fromLang = 'auto'#auto  EN
     toLang = 'auto'#auto  zh-CHS
     
     salt = random.randint(1, 65536)
