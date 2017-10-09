@@ -76,7 +76,7 @@ def youdao(q):
     salt = random.randint(1, 65536)
 
     sign = appKey+q+str(salt)+secretKey
-    return myurl
+    
     
 
     m1 = md5.new()
@@ -85,6 +85,7 @@ def youdao(q):
     
     myurl = myurl+r'?appKey='+appKey+r'&q='+q+r'&from='+fromLang+r'&to='+toLang+r'&salt='+str(salt)+r'&sign='+sign
     #return myurl
+    return myurl
 	
 
     resp = urllib2.urlopen(myurl)
