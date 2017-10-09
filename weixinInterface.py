@@ -77,11 +77,12 @@ def youdao(q):
     salt = random.randint(1, 65536)
 
     sign = appKey+q+str(salt)+secretKey
-    return sign
+    
 
     m1 = md5.new()
     m1.update(sign)
     sign = m1.hexdigest()
+    return sign
     myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
 	
 
