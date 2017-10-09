@@ -100,11 +100,11 @@ def youdao(q):
         else:
             trans =u'%s:\n基本翻译:%s\n'%(fanyi['query'],''.join(fanyi['translation']))        
             return trans
-    elif fanyi['errorCode'] == 20:
+    elif fanyi['errorCode'] == '103':
         return u'对不起，要翻译的文本过长'
-    elif fanyi['errorCode'] == 30:
+    elif fanyi['errorCode'] == '301':
         return u'对不起，无法进行有效的翻译'
-    elif fanyi['errorCode'] == 40:
+    elif fanyi['errorCode'] == '102':
         return u'对不起，不支持的语言类型'
     else:
         return u'对不起，您输入的单词%s无法翻译,请检查拼写'% q
