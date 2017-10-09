@@ -92,7 +92,7 @@ def youdao(q):
     ##根据json是否返回一个叫“basic”的key来判断是否翻译成功
     if 'basic' in fanyi.keys():
     ##下面是你自已来组织格式
-    	trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],''.join(fanyi['translation']),''.join(fanyi['basic']['explains']),''.join(fanyi['web'][0]['value']))
+    	trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],' '.join(fanyi['translation']),' '.join(fanyi['basic']['explains']),' '.join(fanyi['web'][0]['value']))
     	return trans
     else:
     	return u'对不起，您输入的单词%s无法翻译，请检查拼写'% q
