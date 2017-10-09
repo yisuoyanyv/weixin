@@ -76,6 +76,7 @@ def youdao(q):
     salt = random.randint(1, 65536)
 
     sign = appKey+q+str(salt)+secretKey
+    return myrul
     
 
     m1 = md5.new()
@@ -88,7 +89,7 @@ def youdao(q):
 
     resp = urllib2.urlopen(myurl)
     fanyi = json.loads(resp.read())
-    return myrul
+    
     
     if fanyi['errorCode'] == 0:    
         ##根据json是否返回一个叫“basic”的key来判断是否翻译成功
