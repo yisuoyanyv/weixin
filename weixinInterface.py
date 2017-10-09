@@ -71,7 +71,7 @@ def youdao(q):
 
     fromLang = 'EN'
     toLang = 'zh-CHS'
-    return 'kkk'
+    return  u'kkk'
         #salt = random.randint(1, 65536)
 
         #sign = appKey+q+str(salt)+secretKey
