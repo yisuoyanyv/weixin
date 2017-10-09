@@ -53,9 +53,8 @@ class WeixinInterface:
                 if type(content).__name__ == "unicode":
                     content = content.encode('UTF-8')
                 #return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),youdao(content))
-                else:
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),youdao(content))
+                return self.render.reply_text(fromUser,toUser,int(time.time()),youdao(content))
+                
         #关注后的欢迎语 TODO
         if msgType == 'event':
             if xml.find("Event").text == 'subscribe':#关注的时候的欢迎语
@@ -71,8 +70,8 @@ def youdao(q):
     secretKey ='zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'        
     myurl ='http://openapi.youdao.com/api'
 
-    fromLang = 'EN'
-    toLang = 'zh-CHS'
+    fromLang = 'autos'#auto  EN
+    toLang = 'auto'#auto  zh-CHS
     
     salt = random.randint(1, 65536)
 
