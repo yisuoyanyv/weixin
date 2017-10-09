@@ -53,7 +53,7 @@ class WeixinInterface:
                 if type(content).__name__ == "unicode":
                     content = content.encode('UTF-8')
                 #return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
-                    return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+youdao(content))
+                    return self.render.reply_text(fromUser,toUser,int(time.time()),youdao(content))
         #关注后的欢迎语 TODO
         if msgType == 'event':
             if xml.find("Event").text == 'subscribe':#关注的时候的欢迎语
@@ -71,26 +71,26 @@ def youdao(q):
 
     fromLang = 'EN'
     toLang = 'zh-CHS'
-    return  u'kkk'
-        #salt = random.randint(1, 65536)
+    
+    salt = random.randint(1, 65536)
 
-        #sign = appKey+q+str(salt)+secretKey
-        
-        #m1 = md5.new()
-        #m1.update(sign)
-        #sign = m1.hexdigest()
-        #myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
-        
-        
-        #resp = urllib2.urlopen(myurl)
-        #fanyi = json.loads(resp.read())
-        ##根据json是否返回一个叫“basic”的key来判断是否翻译成功
-        #if 'basic' in fanyi.keys():
-            ##下面是你自已来组织格式
-            #trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],''.join(fanyi['translation']),''.join(fanyi['basic']['explains']),''.join(fanyi['web'][0]['value']))
-            #return trans
-        #else:
-            #return u'对不起，您输入的单词%s无法翻译，请检查拼写'% q
+    sign = appKey+q+str(salt)+secretKey
+
+    m1 = md5.new()
+    m1.update(sign)
+    sign = m1.hexdigest()
+    myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
+	return  myurl
+
+    #resp = urllib2.urlopen(myurl)
+    #fanyi = json.loads(resp.read())
+    ##根据json是否返回一个叫“basic”的key来判断是否翻译成功
+    #if 'basic' in fanyi.keys():
+    ##下面是你自已来组织格式
+    #trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],''.join(fanyi['translation']),''.join(fanyi['basic']['explains']),''.join(fanyi['web'][0]['value']))
+    #return trans
+    #else:
+    #return u'对不起，您输入的单词%s无法翻译，请检查拼写'% q
     
     
     
