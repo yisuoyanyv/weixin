@@ -83,7 +83,7 @@ def youdao(q):
     m1.update(sign)
     sign = m1.hexdigest()
     
-    myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
+    myurl = myurl+r'?appKey='+appKey+r'&q='+urllib2.quote(q)+r'&from='+fromLang+r'&to='+toLang+r'&salt='+str(salt)+r'&sign='+sign
 	return myurl
 
     #resp = urllib2.urlopen(myurl)
