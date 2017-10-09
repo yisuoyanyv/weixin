@@ -82,9 +82,9 @@ def youdao(q):
     m1 = md5.new()
     m1.update(sign)
     sign = m1.hexdigest()
-    return sign
+    
     myurl = myurl+'?appKey='+appKey+'&q='+urllib2.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
-	
+	return myurl
 
     #resp = urllib2.urlopen(myurl)
     #fanyi = json.loads(resp.read())
