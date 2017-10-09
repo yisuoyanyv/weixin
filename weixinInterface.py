@@ -85,7 +85,7 @@ def youdao(q):
     
     myurl = myurl+r'?appKey='+appKey+r'&q='+q+r'&from='+fromLang+r'&to='+toLang+r'&salt='+str(salt)+r'&sign='+sign
     #return myurl
-    return myurl
+    
 	
 
     resp = urllib2.urlopen(myurl)
