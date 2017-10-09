@@ -93,7 +93,7 @@ def youdao(q):
     if 'basic' in fanyi.keys():
     ##下面是你自已来组织格式
     	trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],' '.join(fanyi['translation']),' '.join(fanyi['basic']['explains']),' '.join(fanyi['web'][0]['value']))
-    	return urllib.unquote(trans)
+    	return urllib2.unquote(trans)
     else:
     	return u'对不起，您输入的单词%s无法翻译，请检查拼写'% q
     
