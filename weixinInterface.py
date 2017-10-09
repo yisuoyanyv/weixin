@@ -67,12 +67,12 @@ class WeixinInterface:
     	#return self.render.reply_text(fromUser,toUser,int(time.time()),Nword)
     
 def youdao(q):        
-    appKey = u'68288d01f74b3f01'
-    secretKey =u'zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'        
-    myurl =u'http://openapi.youdao.com/api'
+    appKey = '68288d01f74b3f01'
+    secretKey ='zRKls8HP3j3jeTZgFCYE2SzO9Xhp8jfi'        
+    myurl ='http://openapi.youdao.com/api'
 
-    fromLang = u'EN'
-    toLang = u'zh-CHS'
+    fromLang = 'EN'
+    toLang = 'zh-CHS'
     
     salt = random.randint(1, 65536)
 
@@ -93,7 +93,7 @@ def youdao(q):
     if 'basic' in fanyi.keys():
     ##下面是你自已来组织格式
     	trans = u'%s:\n%s\n%s\n网络释义：\n%s'%(fanyi['query'],','.join(fanyi['translation']),','.join(fanyi['basic']['explains']),','.join(fanyi['web'][0]['value']))
-    	return trans
+    	return urllib2.unquote(trans)
     else:
     	return u'对不起，您输入的单词%s无法翻译，请检查拼写'% q
     
